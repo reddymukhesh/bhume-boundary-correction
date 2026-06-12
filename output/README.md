@@ -2,57 +2,67 @@
 
 ## Overview
 
-This project attempts to improve agricultural land boundaries using simple geospatial correction techniques.
+This project is developed for the Bhume geospatial boundary correction challenge.
 
-The system reads:
-- input.geojson
-- satellite imagery
-- boundary hints
+The system loads:
+- GeoJSON plot boundaries
+- Satellite imagery (.tif)
+- Boundary hints
 
-and generates:
-- predictions.geojson
+It performs:
+- Plot visualization
+- Boundary correction
+- Confidence-based prediction
+- GeoJSON output generation
 
-## Approach
-
-The current approach uses:
-
-1. GeoJSON plot loading
-2. Polygon translation (small shifts)
-3. Confidence-based correction
-4. Automatic flagging of uncertain plots
-
-Plots with higher confidence are marked as:
-- corrected
-
-Plots with lower confidence are:
-- flagged
+---
 
 ## Technologies Used
 
 - Python
 - GeoPandas
-- Shapely
 - Rasterio
 - Matplotlib
+- GeoJSON
 
-## Current Logic
+---
 
-For each plot:
-- Apply a small random shift
-- Assign confidence score
-- If confidence > 0.7:
-  - corrected
-- Else:
-  - flagged
+## Workflow
+
+1. Load agricultural plot boundaries
+2. Load satellite imagery
+3. Visualize land parcels
+4. Detect shifted boundaries
+5. Correct confident plots
+6. Flag uncertain plots
+7. Export predictions.geojson
+
+---
 
 ## Output
 
 The system generates:
 - predictions.geojson
 
+---
+
+## Current Logic
+
+- High confidence plots are corrected
+- Low confidence plots are flagged
+- Simple boundary shifting is used as baseline correction
+
+---
+
 ## Future Improvements
 
-- Image edge detection
-- Better alignment scoring
-- Automatic field matching
-- ML-based correction
+- ML-based alignment
+- Edge detection
+- Automatic boundary extraction
+- Deep learning segmentation
+
+---
+
+## Author
+
+Chegireddy Venkata Mukhesh Reddy
